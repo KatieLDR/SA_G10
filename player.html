@@ -83,7 +83,7 @@
     <div class="up">
       <button class="btt" onclick="previous_song()" id="pre"><i class="fa fa-step-backward"
           aria-hidden="true"></i></button>
-      <button class="btt" onclick="justplay()" id="play"> <i class="fa fa-play" aria-hidden="true"></i></button>
+      <button class="btt" id="play" onclick="playMusic()"> <i class="fa fa-play" aria-hidden="true"></i></button>
       <button class="btt" onclick="next_song()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
     </div>
     <div class="volume1">
@@ -103,6 +103,7 @@
   <script src="statics/js/jquery-3.4.1.min.js"> </script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript">
+    var readytoplay = '';
     function play_current_song() {
       //取得網址參數
       var url_string = window.location.href;
@@ -134,7 +135,17 @@
     function displaysong(data){
       document.getElementById("title").innerHTML = data[0].name;
       document.getElementById("artist").innerHTML = data[0].artist;
+
       document.getElementById("track_image").src = "upload/"+data[0].name+".jpg";
+      
+      readytoplay = data[0].name;
+      alert(readytoplay);
+
+    }
+
+    function playMusic(){
+    let track = document.createElement('audio');
+    track.src = "music/"+readytoplay+".mp3";
     }
        
 
