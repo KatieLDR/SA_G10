@@ -134,6 +134,7 @@
     function displaysong(data){
       document.getElementById("title").innerHTML = data[0].name;
       document.getElementById("artist").innerHTML = data[0].artist;
+      document.getElementById("track_image").src = "upload/"+data[0].name+".jpg";
     }
        
 
